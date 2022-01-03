@@ -167,8 +167,11 @@ function myMove() {
   }
 
   function ramdomMkr(){
-  var r = Math.random() * 15;    //Math.floor()
-  return r;
+    var r = Math.random();    //Math.floor()
+    while (r > 0 && r < 0.01){
+      r = Math.random();
+    }
+    return r;
   }
 
   var id = setInterval(frame, 30);
