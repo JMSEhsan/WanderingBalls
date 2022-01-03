@@ -167,9 +167,9 @@ function myMove() {
   }
 
   function ramdomMkr(){
-    var r = Math.random();    //Math.floor()
-    while (r > 0 && r < 0.01){
-      r = Math.random();
+    var r = Math.random() * 15;    //Math.floor()
+    while (r > 0 && r < 0.05){
+      r = Math.random() * 15;
     }
     return r;
   }
