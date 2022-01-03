@@ -1,0 +1,496 @@
+<!--  
+  Wandering balls
+  Display x, y positions and slope angle
+-->
+
+<!DOCTYPE html>
+<html>
+<style>
+
+#myContainer0HD {            /*  1st animation */
+  top: 20px;
+  left: 84px;
+  width: 400px;
+  height: 120px;
+  position: absolute;
+  background: rgb(208, 252, 248);
+}
+
+#myContainer0 {
+  top:170px;
+  left: 84px;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background: rgb(166, 241, 200);
+}
+
+#myAnimation0 {
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  position: absolute;
+  background-color: rgb(166, 241, 200); 
+
+}
+
+#myContainerHD {               /* 2nd animation */
+  top: 20px;
+  left: 568px;
+  width: 400px;
+  height: 120px;
+  position: absolute;
+  background: rgb(208, 252, 248);
+}
+
+#myContainer {
+  left: 568px;
+  top:170px;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background: rgb(252, 245, 157);
+
+}
+
+#myAnimation {                 /* 3rd animation */
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  position: absolute;
+  background-color: rgb(252, 245, 157);
+}
+
+#myContainer2HD {
+  top: 20px;
+  left: 1052px;
+  width: 400px;
+  height: 120px;
+  position: absolute;
+  background: rgb(208, 252, 248);
+}
+
+#myContainer2 {
+  left: 1052px;
+  top:170px;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background: rgb(243, 216, 241);
+
+}
+
+#myAnimation2 {
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  position: absolute;
+  background-color: rgb(243, 216, 241);
+}
+
+</style>
+
+<body onload = "myMove()">
+
+
+<div id ="myContainer0HD"><p style = "padding-left: 0px;"> &nbsp Position x: <span id="posx0"></span> px </p>
+<p style = "padding-top: 0px;"> &nbsp Position y: <span id="posy0"></span> px</p><p>&nbsp Slope Angle: <span id="slope0"></span> DEG</p></div>
+
+<div id ="myContainer0"><div id ="myAnimation0"></div></div>
+
+
+<div id ="myContainerHD"><p style = "padding-left: 0px; padding-top: 0px;"> &nbsp Position x: <span id="posx"></span> px</p>
+<p style = "padding-left: 0px; padding-top: 0px;"> &nbsp Position y: <span id="posy"></span> px</p><p>&nbsp Slope Angle: <span id="slope"></span> DEG</p></div>
+
+<div id ="myContainer"><div id ="myAnimation"></div></div>
+
+
+<div id ="myContainer2HD"><p style = "padding-left: 0px; padding-top: 0px;"> &nbsp Position x: <span id="posx2"></span> px</p>
+<p style = "padding-left: 0px; padding-top: 0px;"> &nbsp Position y: <span id="posy2"></span> px</p><p>&nbsp Slope Angle: <span id="slope2"></span> DEG</p></div>
+
+<div id ="myContainer2"><div id ="myAnimation2"></div></div>
+
+<script>
+
+function myMove() {
+  
+  document.getElementById("myAnimation0").style.backgroundColor = "rgb(240, 130, 163)";
+  var elem0 = document.getElementById("myAnimation0");
+  var posx0 = ramdomMkr() * 370/9;
+  var posy0 = ramdomMkr() * 370/9;
+  elem0.style.left = posx0 + 'px';
+  elem0.style.top = posy0 + 'px';
+    
+  document.getElementById("myAnimation").style.backgroundColor = "rgb(75, 224, 82)";
+  var elem = document.getElementById("myAnimation");
+  var posx = ramdomMkr() * 370/9;
+  var posy = ramdomMkr() * 370/9;
+  elem.style.left = posx + 'px';
+  elem.style.top = posy + 'px';
+
+  document.getElementById("myAnimation2").style.backgroundColor = "rgb(36, 203, 209)";
+  var elem2 = document.getElementById("myAnimation2");
+  var posx2 = ramdomMkr() * 370/9;
+  var posy2 = ramdomMkr() * 370/9;
+  elem2.style.left = posx2 + 'px';
+  elem2.style.top = posy2 + 'px';
+
+  
+  var r1 = ramdomMkr();
+  var r2 = ramdomMkr();
+
+  while (r1 == 0 && r2 == 0){
+    r1 = ramdomMkr();
+    r2 = ramdomMkr();
+  }
+  
+  var r10 = ramdomMkr();
+  var r20 = ramdomMkr();
+
+  while (r10 == 0 && r20 == 0){
+    r10 = ramdomMkr();
+    r20 = ramdomMkr();
+  }
+
+  var r12 = ramdomMkr();
+  var r22 = ramdomMkr();
+  
+  while (r12 == 0 && r22 == 0){
+    r12 = ramdomMkr();
+    r22 = ramdomMkr();
+  }
+
+  function ramdomMkr(){
+  var r =  Math.floor(Math.random() * 10);
+  return r;
+  }
+
+  var id = setInterval(frame, 30);
+
+  let px0 = [];
+  let py0 = [];
+  i = 0;
+  var s0;
+
+  let px = [];
+  let py = [];
+  //i = 0;
+  var s;
+
+  let px2 = [];
+  let py2 = [];
+  //i = 0;
+  var s2;
+
+
+  function frame() {
+
+    //1st animation
+
+    if (posx0 > (370 - r10) || posx0 == 370){
+
+      while(posx0 < 370 && (370 - posx0) >= 1){
+      posx0++;
+      posy0 = posy0 + r20 / r10;
+      elem0.style.left = Math.abs(posx0) + 'px';
+      elem0.style.top = Math.abs(posy0) + 'px';
+      }
+
+      r10 = ramdomMkr();
+      while(r10 == 0){
+        r10 = ramdomMkr();
+      }
+    
+      r20 = ramdomMkr();
+
+      posx0 = -370;
+      }
+
+    else if (posy0 > (370 - r20) || posy0 == 370){
+
+      while(posy0 < 370 && (370 - posy0) >= 1){
+        posy0++;
+        posx0 = posx0 + r10 / r20;
+        elem0.style.left = Math.abs(posx0) + 'px';
+        elem0.style.top = Math.abs(posy0) + 'px';
+      }
+
+      r20 = ramdomMkr();
+      while(r20 == 0){
+        r20 = ramdomMkr();
+      }
+
+      r10 = ramdomMkr();      
+
+      posy0 = -370;
+      }
+
+    else if (Math.abs(posx0) < r10 && posx0 < 0){
+
+      while(Math.abs(posx0) < r10 && posx0 < 0){
+        posx0++;
+        posy0 = posy0 + r20 / r10;
+        elem0.style.left = Math.abs(posx0) + 'px';
+        elem0.style.top = Math.abs(posy0) + 'px';
+      }
+
+      posx0 = 0;
+
+      r10 = ramdomMkr();
+      while(r10 == 0){
+        r10 = ramdomMkr();
+      }
+      
+      r20 = ramdomMkr();
+      }
+
+    else if (Math.abs(posy0) <  r20   && posy0 < 0){
+
+      while(Math.abs(posy0) < r20 && posy0 < 0){
+      posy0++;
+      posx0 = posx0 + r10 / r20;
+      elem0.style.left = Math.abs(posx0) + 'px';
+      elem0.style.top = Math.abs(posy0) + 'px';
+      }
+
+      posy0 = 0;
+
+      r20 = ramdomMkr();
+      while(r20 == 0){
+        r20 = ramdomMkr();
+      }
+      r10 = ramdomMkr();
+      
+      }
+
+    else {
+      posx0 = posx0 + r10;
+      posy0 = posy0 + r20;
+      elem0.style.left = Math.abs(posx0) + 'px';
+      elem0.style.top = Math.abs(posy0) + 'px';
+      }
+
+      px0[i] = Math.abs(posx0);
+      py0[i] = Math.abs(posy0);
+      if (px0[i] != px0[i-1] && py0[i] != py0[i-1]){
+        s0 = - ((py0[i] - py0[i-1])* Math.abs(px0[i] - px0[i-1]))/((px0[i] - px0[i-1]) * Math.abs(py0[i] - py0[i-1]));
+      }
+      else{
+        s0 = 1;
+      }
+
+      document.getElementById("posx0").innerHTML = Math.round(Math.abs(posx0));
+      document.getElementById("posy0").innerHTML = Math.round(Math.abs(posy0));
+      document.getElementById("slope0").innerHTML = s0 * Math.round(Math.atan(r20/r10) * 180 / Math.PI);
+
+    // 2nd animation
+
+    if (posx > (370 - r1) || posx == 370){
+
+      while(posx < 370 && (370 - posx) >= 1){
+      posx++;
+      posy = posy + r2 / r1;
+      elem.style.left = Math.abs(posx) + 'px';
+      elem.style.top = Math.abs(posy) + 'px';
+      }
+
+      r1 = ramdomMkr();
+      while(r1 == 0){
+        r1 = ramdomMkr();
+      }
+            
+      r2 = ramdomMkr();
+
+      posx = -370;
+      }      
+
+    else if (posy > (370 - r2) || posy == 370){
+
+      while(posy < 370 && (370 - posy) >= 1){
+        posy++;
+        posx = posx + r1 / r2;
+        elem.style.left = Math.abs(posx) + 'px';
+        elem.style.top = Math.abs(posy) + 'px';
+      }
+      
+      r2 = ramdomMkr();
+      while (r2 == 0){
+        r2 = ramdomMkr();
+      }
+ 
+      r1 = ramdomMkr();
+ 
+      posy = -370;
+      }
+
+    else if (Math.abs(posx) < r1 && posx < 0){
+
+      while(Math.abs(posx) < r1 && posx < 0){
+        posx++;
+        posy = posy + r2 / r1;
+        elem.style.left = Math.abs(posx) + 'px';
+        elem.style.top = Math.abs(posy) + 'px';
+      }
+
+      posx = 0;
+
+      r1 = ramdomMkr();
+      while(r1 == 0){
+        r1 = ramdomMkr();
+      }
+      
+      r2 = ramdomMkr();
+      }
+
+    else if (Math.abs(posy) < r2 && posy < 0){
+
+      while(Math.abs(posy) < r2 && posy < 0){
+      posy++;
+      posx = posx + r1 / r2;
+      elem.style.left = Math.abs(posx) + 'px';
+      elem.style.top = Math.abs(posy) + 'px';
+      }
+
+      posy = 0;
+      
+      r2 = ramdomMkr();
+      while(r2 == 0){
+        r2 = ramdomMkr();
+      }
+
+      r1 = ramdomMkr();      
+      }
+
+    else {
+
+      posx = posx + r1;
+      posy = posy + r2;
+      elem.style.left = Math.abs(posx) + 'px';
+      elem.style.top = Math.abs(posy) + 'px';
+      }
+
+      px[i] = Math.abs(posx);
+      py[i] = Math.abs(posy);
+      if (px[i] != px[i-1] && py[i] != py[i-1]){
+        s = - ((py[i] - py[i-1])* Math.abs(px[i] - px[i-1]))/((px[i] - px[i-1]) * Math.abs(py[i] - py[i-1]));
+      }
+      else{
+        s = 1;
+      }
+
+      document.getElementById("posx").innerHTML = Math.round(Math.abs(posx));
+      document.getElementById("posy").innerHTML = Math.round(Math.abs(posy));
+      document.getElementById("slope").innerHTML = s * Math.round(Math.atan(r2/r1) * 180 / Math.PI);
+
+    // 3rd animation 
+
+    if (posx2 > (370 - r12) || posx2 == 370){
+
+      while(posx2 < 370 && (370 - posx2) >= 1){
+      posx2++;
+      posy2 = posy2 + r22 / r12;
+      elem2.style.left = Math.abs(posx2) + 'px';
+      elem2.style.top = Math.abs(posy2) + 'px';
+      }
+
+      r12 = ramdomMkr();
+      while(r12 == 0){
+        r12 = ramdomMkr();
+      }
+      
+      r22 = ramdomMkr();
+
+      posx2 = -370;
+      }
+
+    else if (posy2 > (370 - r22) || posy2 == 370){
+
+      while(posy2 < 370 && (370 - posy2) >= 1){
+        posy2++;
+        posx2 = posx2 + r12 / r22;
+        elem2.style.left = Math.abs(posx2) + 'px';
+        elem2.style.top = Math.abs(posy2) + 'px';
+      }
+      
+      r22 = ramdomMkr();
+      while(r22 == 0){
+        r22 = ramdomMkr();
+      }
+
+      r12 = ramdomMkr();
+
+      posy2 = -370;
+      }
+
+    else if (Math.abs(posx2) < r12 && posx2 < 0){
+
+      while(Math.abs(posx2) < r12 && posx2 < 0){
+        posx2++;
+        posy2 = posy2 + r22 / r12;
+        elem2.style.left = Math.abs(posx2) + 'px';
+        elem2.style.top = Math.abs(posy2) + 'px';
+      }
+
+      posx2 = 0;
+
+      r12 = ramdomMkr();
+      while(r12 == 0){
+        r12 = ramdomMkr();
+      }
+      
+      r22 = ramdomMkr();
+      }
+
+    else if (Math.abs(posy2) < r22 && posy2 < 0){
+
+      while(Math.abs(posy2) < r22 && posy2 < 0){
+      posy2++;
+      posx2 = posx2 + r12 / r22;
+      elem2.style.left = Math.abs(posx2) + 'px';
+      elem2.style.top = Math.abs(posy2) + 'px';
+      }
+
+      posy2 = 0;
+
+      r22 = ramdomMkr();
+      while(r22 == 0){
+        r22 = ramdomMkr();
+      }
+
+      r12 = ramdomMkr();      
+      }
+
+    else {
+      posx2 = posx2 + r12;
+      posy2 = posy2 + r22;
+      elem2.style.left = Math.abs(posx2) + 'px';
+      elem2.style.top = Math.abs(posy2) + 'px';
+      }
+
+      px2[i] = Math.abs(posx2);
+      py2[i] = Math.abs(posy2);
+      if (px2[i] != px2[i-1] && py2[i] != py2[i-1]){
+        s2 = - ((py2[i] - py2[i-1])* Math.abs(px2[i] - px2[i-1]))/((px2[i] - px2[i-1]) * Math.abs(py2[i] - py2[i-1]));
+      }
+      else{
+        s2 = 1;
+      }
+
+      document.getElementById("posx2").innerHTML = Math.round(Math.abs(posx2));
+      document.getElementById("posy2").innerHTML = Math.round(Math.abs(posy2));
+      document.getElementById("slope2").innerHTML = s2 * Math.round(Math.atan(r22/r12) * 180 / Math.PI);
+
+      i++;
+  }
+
+}
+
+</script>
+</body>
+</html>
