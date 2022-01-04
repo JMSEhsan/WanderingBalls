@@ -122,51 +122,51 @@ function myMove() {
   
   document.getElementById("myAnimation0").style.backgroundColor = "rgb(240, 130, 163)";
   var elem0 = document.getElementById("myAnimation0");
-  var posx0 = ramdomMkr() * 370/10;
-  var posy0 = ramdomMkr() * 370/10;
+  var posx0 = randomMkr() * 370/10;
+  var posy0 = randomMkr() * 370/10;
   elem0.style.left = posx0 + 'px';
   elem0.style.top = posy0 + 'px';
     
   document.getElementById("myAnimation").style.backgroundColor = "rgb(75, 224, 82)";
   var elem = document.getElementById("myAnimation");
-  var posx = ramdomMkr() * 370/10;
-  var posy = ramdomMkr() * 370/10;
+  var posx = randomMkr() * 370/10;
+  var posy = randomMkr() * 370/10;
   elem.style.left = posx + 'px';
   elem.style.top = posy + 'px';
 
   document.getElementById("myAnimation2").style.backgroundColor = "rgb(36, 203, 209)";
   var elem2 = document.getElementById("myAnimation2");
-  var posx2 = ramdomMkr() * 370/10;
-  var posy2 = ramdomMkr() * 370/10;
+  var posx2 = randomMkr() * 370/10;
+  var posy2 = randomMkr() * 370/10;
   elem2.style.left = posx2 + 'px';
   elem2.style.top = posy2 + 'px';
 
   
-  var r1 = ramdomMkr();
-  var r2 = ramdomMkr();
+  var r1 = randomMkr();
+  var r2 = randomMkr();
 
   while (r1 == 0 && r2 == 0){
-    r1 = ramdomMkr();
-    r2 = ramdomMkr();
+    r1 = randomMkr();
+    r2 = randomMkr();
   }
   
-  var r10 = ramdomMkr();
-  var r20 = ramdomMkr();
+  var r10 = randomMkr();
+  var r20 = randomMkr();
 
   while (r10 == 0 && r20 == 0){
-    r10 = ramdomMkr();
-    r20 = ramdomMkr();
+    r10 = randomMkr();
+    r20 = randomMkr();
   }
 
-  var r12 = ramdomMkr();
-  var r22 = ramdomMkr();
+  var r12 = randomMkr();
+  var r22 = randomMkr();
   
   while (r12 == 0 && r22 == 0){
-    r12 = ramdomMkr();
-    r22 = ramdomMkr();
+    r12 = randomMkr();
+    r22 = randomMkr();
   }
 
-  function ramdomMkr(){
+  function randomMkr(){
     var r = (Math.random() * 10);  //Math.floor()
     while (r > 0 && r < 0.05){
       r = (Math.random() * 10);
@@ -205,12 +205,12 @@ function myMove() {
       elem0.style.top = Math.abs(posy0) + 'px';
       }
 
-      r10 = ramdomMkr();
+      r10 = randomMkr();
       while(r10 == 0){
-        r10 = ramdomMkr();
+        r10 = randomMkr();
       }
     
-      r20 = ramdomMkr();
+      r20 = randomMkr();
 
       posx0 = -370;
       }
@@ -224,12 +224,12 @@ function myMove() {
         elem0.style.top = Math.abs(posy0) + 'px';
       }
 
-      r20 = ramdomMkr();
+      r20 = randomMkr();
       while(r20 == 0){
-        r20 = ramdomMkr();
+        r20 = randomMkr();
       }
 
-      r10 = ramdomMkr();      
+      r10 = randomMkr();      
 
       posy0 = -370;
       }
@@ -245,12 +245,12 @@ function myMove() {
 
       posx0 = 0;
 
-      r10 = ramdomMkr();
+      r10 = randomMkr();
       while(r10 == 0){
-        r10 = ramdomMkr();
+        r10 = randomMkr();
       }
       
-      r20 = ramdomMkr();
+      r20 = randomMkr();
       }
 
     else if (Math.abs(posy0) <  r20   && posy0 < 0){
@@ -264,11 +264,11 @@ function myMove() {
 
       posy0 = 0;
 
-      r20 = ramdomMkr();
+      r20 = randomMkr();
       while(r20 == 0){
-        r20 = ramdomMkr();
+        r20 = randomMkr();
       }
-      r10 = ramdomMkr();
+      r10 = randomMkr();
       
       }
 
@@ -303,12 +303,12 @@ function myMove() {
       elem.style.top = Math.abs(posy) + 'px';
       }
 
-      r1 = ramdomMkr();
+      r1 = randomMkr();
       while(r1 == 0){
-        r1 = ramdomMkr();
+        r1 = randomMkr();
       }
             
-      r2 = ramdomMkr();
+      r2 = randomMkr();
 
       posx = -370;
       }      
@@ -322,12 +322,12 @@ function myMove() {
         elem.style.top = Math.abs(posy) + 'px';
       }
       
-      r2 = ramdomMkr();
+      r2 = randomMkr();
       while (r2 == 0){
-        r2 = ramdomMkr();
+        r2 = randomMkr();
       }
  
-      r1 = ramdomMkr();
+      r1 = randomMkr();
  
       posy = -370;
       }
@@ -343,12 +343,12 @@ function myMove() {
 
       posx = 0;
 
-      r1 = ramdomMkr();
+      r1 = randomMkr();
       while(r1 == 0){
-        r1 = ramdomMkr();
+        r1 = randomMkr();
       }
       
-      r2 = ramdomMkr();
+      r2 = randomMkr();
       }
 
     else if (Math.abs(posy) < r2 && posy < 0){
@@ -362,12 +362,12 @@ function myMove() {
 
       posy = 0;
       
-      r2 = ramdomMkr();
+      r2 = randomMkr();
       while(r2 == 0){
-        r2 = ramdomMkr();
+        r2 = randomMkr();
       }
 
-      r1 = ramdomMkr();      
+      r1 = randomMkr();      
       }
 
     else {
@@ -402,12 +402,12 @@ function myMove() {
       elem2.style.top = Math.abs(posy2) + 'px';
       }
 
-      r12 = ramdomMkr();
+      r12 = randomMkr();
       while(r12 == 0){
-        r12 = ramdomMkr();
+        r12 = randomMkr();
       }
       
-      r22 = ramdomMkr();
+      r22 = randomMkr();
 
       posx2 = -370;
       }
@@ -421,12 +421,12 @@ function myMove() {
         elem2.style.top = Math.abs(posy2) + 'px';
       }
       
-      r22 = ramdomMkr();
+      r22 = randomMkr();
       while(r22 == 0){
-        r22 = ramdomMkr();
+        r22 = randomMkr();
       }
 
-      r12 = ramdomMkr();
+      r12 = randomMkr();
 
       posy2 = -370;
       }
@@ -442,12 +442,12 @@ function myMove() {
 
       posx2 = 0;
 
-      r12 = ramdomMkr();
+      r12 = randomMkr();
       while(r12 == 0){
-        r12 = ramdomMkr();
+        r12 = randomMkr();
       }
       
-      r22 = ramdomMkr();
+      r22 = randomMkr();
       }
 
     else if (Math.abs(posy2) < r22 && posy2 < 0){
@@ -461,12 +461,12 @@ function myMove() {
 
       posy2 = 0;
 
-      r22 = ramdomMkr();
+      r22 = randomMkr();
       while(r22 == 0){
-        r22 = ramdomMkr();
+        r22 = randomMkr();
       }
 
-      r12 = ramdomMkr();      
+      r12 = randomMkr();      
       }
 
     else {
