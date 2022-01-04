@@ -122,22 +122,22 @@ function myMove() {
   
   document.getElementById("myAnimation0").style.backgroundColor = "rgb(240, 130, 163)";
   var elem0 = document.getElementById("myAnimation0");
-  var posx0 = ramdomMkr() * 370/9;
-  var posy0 = ramdomMkr() * 370/9;
+  var posx0 = ramdomMkr() * 370/10;
+  var posy0 = ramdomMkr() * 370/10;
   elem0.style.left = posx0 + 'px';
   elem0.style.top = posy0 + 'px';
     
   document.getElementById("myAnimation").style.backgroundColor = "rgb(75, 224, 82)";
   var elem = document.getElementById("myAnimation");
-  var posx = ramdomMkr() * 370/9;
-  var posy = ramdomMkr() * 370/9;
+  var posx = ramdomMkr() * 370/10;
+  var posy = ramdomMkr() * 370/10;
   elem.style.left = posx + 'px';
   elem.style.top = posy + 'px';
 
   document.getElementById("myAnimation2").style.backgroundColor = "rgb(36, 203, 209)";
   var elem2 = document.getElementById("myAnimation2");
-  var posx2 = ramdomMkr() * 370/9;
-  var posy2 = ramdomMkr() * 370/9;
+  var posx2 = ramdomMkr() * 370/10;
+  var posy2 = ramdomMkr() * 370/10;
   elem2.style.left = posx2 + 'px';
   elem2.style.top = posy2 + 'px';
 
@@ -167,7 +167,10 @@ function myMove() {
   }
 
   function ramdomMkr(){
-    var r = Math.floor(Math.random() * 10);
+    var r = (Math.random() * 10);  //Math.floor()
+    while (r > 0 && r < 0.05){
+      r = (Math.random() * 10);
+    }
     return r;
   }
 
