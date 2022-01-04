@@ -122,24 +122,24 @@ function myMove() {
   
   document.getElementById("myAnimation0").style.backgroundColor = "rgb(240, 130, 163)";
   var elem0 = document.getElementById("myAnimation0");
-  var posx0 = randomMkr() * 370/10;
-  var posy0 = randomMkr() * 370/10;
-  elem0.style.left = posx0 + 'px';
-  elem0.style.top = posy0 + 'px';
+  var posx0 = initialRand();
+  var posy0 = initialRand();
+  elem0.style.left = Math.abs(posx0) + 'px';
+  elem0.style.top = Math.abs(posy0) + 'px';
     
   document.getElementById("myAnimation").style.backgroundColor = "rgb(75, 224, 82)";
   var elem = document.getElementById("myAnimation");
-  var posx = randomMkr() * 370/10;
-  var posy = randomMkr() * 370/10;
-  elem.style.left = posx + 'px';
-  elem.style.top = posy + 'px';
+  var posx = initialRand();
+  var posy = initialRand();
+  elem.style.left = Math.abs(posx) + 'px';
+  elem.style.top = Math.abs(posy) + 'px';
 
   document.getElementById("myAnimation2").style.backgroundColor = "rgb(36, 203, 209)";
   var elem2 = document.getElementById("myAnimation2");
-  var posx2 = randomMkr() * 370/10;
-  var posy2 = randomMkr() * 370/10;
-  elem2.style.left = posx2 + 'px';
-  elem2.style.top = posy2 + 'px';
+  var posx2 = initialRand();
+  var posy2 = initialRand();
+  elem2.style.left = Math.abs(posx2) + 'px';
+  elem2.style.top = Math.abs(posy2) + 'px';
 
   
   var r1 = randomMkr();
@@ -166,13 +166,49 @@ function myMove() {
     r22 = randomMkr();
   }
 
-  function randomMkr(){
-    var r = (Math.random() * 10);  //Math.floor()
-    while (r > 0 && r < 0.05){
-      r = (Math.random() * 10);
+  function initialRand(){
+    var rs;
+    var rsd = Math.floor(randomMkr(1));
+
+    if(rsd >= 5 && rsd < 10){
+      rs = -1;
     }
-    return r;
+    else{
+      rs = 1;
+    }
+
+    var rnd = randomMkr(1);
+    var ir = rs * rnd * 370/10;
+
+    while (Math.abs(ir) < rnd && rs < 0){
+      ir = rs * rnd * 370/10;
+    }
+  
+    return ir;
   }
+
+  function randomMkr(x){
+    var r = (Math.random() * 10); //Math.floor()
+    
+    switch (x){
+      case 1:
+        return r;
+        break;
+      default:
+        while ( r > 0 && r < 0.05){              // limit infinitesimal random values
+        r = (Math.random() * 10); 
+        }
+        return r;
+    }
+  }
+
+  // function randomMkr(){
+  //   var r = (Math.random() * 10);  //Math.floor()
+  //   while (r > 0 && r < 0.05){
+  //     r = (Math.random() * 10);
+  //   }
+  //   return r;
+  // }
 
   var id = setInterval(frame, 30);
 
